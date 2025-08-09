@@ -1,29 +1,22 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { Code, Book, Lightbulb } from 'lucide-react'
-import { Button } from "@/components/ui/button"
+import { Code, Lightbulb } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 
 export default function About() {
   const aboutSections = [
     {
-      icon: <Code className="w-8 h-8 text-sky-400" />,
+      icon: <Code className="w-8 h-8 text-gray-400" />,
       title: "Technical Skills",
-      content: "Proficient in JavaScript, PHP, and C++. Experienced with React, Node.js, and web development. Skilled in UI/UX design and building user-friendly digital solutions.",
-      skills: ['JavaScript', 'C++',"PHP", 'React', 'HTML', 'CSS']
+      content: "I proficient use MERN Stack or also called MongoDB, ExpressJS, ReactJS, NextJS and I also have an understanding of C# and Python and also know the OOP system.",
+      skills: ['JavaScript', 'C#', "NextJS", 'React', 'HTML', 'CSS', 'NodeJS', 'Python', 'ExpressJS', 'RESTful API', 'MongoDB']
     },
     {
-      icon: <Book className="w-8 h-8 text-sky-400" />,
-      title: "Education",
-      content: "Currently pursuing a B.S. in Computer Science at Tech University. Relevant coursework: Data Structures, Algorithms & Web Development.",
-      highlight: "CGPA: 7.89"
-    },
-    {
-      icon: <Lightbulb className="w-8 h-8 text-sky-400" />,
-      title: "Interests & Goals",
-      content: "Passionate about web development and UI/UX design. Interested in building user-friendly digital solutions and exploring entrepreneurship. Aspiring to contribute to open-source projects and help others grow in tech.",
-      extra: "In my free time, I enjoy participating in hackathons and exploring new hiking trails."
+      icon: <Lightbulb className="w-8 h-8 text-gray-400" />,
+      title: "About Me",
+      content: "My name is Revan Novendri, an Informatics Engineering student at Dinamika Bangsa University. I could also be called a tech enthusiast. I possess the skills needed in the IT world: adapting quickly to new technologies and never stopping learning to understand new and existing technologies.",
+      extra: ""
     }
   ]
 
@@ -36,9 +29,9 @@ export default function About() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
         >
-          About Me
+          About
         </motion.h2>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8 justify-center text-center">
           {aboutSections.map((section, index) => (
             <motion.div
               key={index}
@@ -46,24 +39,21 @@ export default function About() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="glass-effect hover-glow h-full backdrop-blur-md">
-                <CardContent className="p-6">
-                  <div className="flex items-center mb-4">
+              <Card className="glass-effect hover:shadow-[0_0_20px_3px_rgba(156,163,175,0.3)] h-full backdrop-blur-md transition-shadow duration-300">
+                <CardContent className="p-6 text-center">
+                  <div className="flex flex-col items-center mb-4 text-center">
                     {section.icon}
-                    <h3 className="text-2xl font-semibold text-white ml-4">{section.title}</h3>
+                    <h3 className="text-2xl font-semibold text-white mt-2">{section.title}</h3>
                   </div>
                   <p className="text-gray-300 mb-4">{section.content}</p>
                   {section.skills && (
                     <div className="flex flex-wrap gap-2">
                       {section.skills.map((skill) => (
-                        <span key={skill} className="px-3 py-1 bg-sky-500 bg-opacity-20 rounded-full text-sky-300 text-sm">
+                        <span key={skill} className="px-3 py-1 bg-gray-600/20 rounded-full text-gray-300 text-sm">
                           {skill}
                         </span>
                       ))}
                     </div>
-                  )}
-                  {section.highlight && (
-                    <p className="text-sky-300 font-semibold mt-4">{section.highlight}</p>
                   )}
                   {section.extra && (
                     <p className="text-gray-400 mt-4">{section.extra}</p>
@@ -73,18 +63,7 @@ export default function About() {
             </motion.div>
           ))}
         </div>
-        <motion.div
-          className="mt-12 text-center"
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.5 }}
-        >
-          <Button asChild className="rounded-full bg-sky-900 hover:bg-sky-600 text-white p-5 animate-bounce duration-1000">
-            <a href="https://drive.google.com/file/d/1yNEFji0M7guwj3iACldNnq1SqWBxKCTJ/view?usp=drive_link" download>View CV</a>
-          </Button>
-        </motion.div>
       </div>
     </section>
   )
 }
-

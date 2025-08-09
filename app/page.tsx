@@ -1,3 +1,8 @@
+export const metadata = {
+  title: 'Revan Novendri',
+  description: 'Portfolio of Revan Novendri',
+}
+
 import Hero from './components/Hero/page'
 import About from './components/About/page'
 import Education from './components/Education/page'

@@ -2,7 +2,7 @@
 
 import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Send, Mail, Phone, MapPin, Linkedin, Github } from 'lucide-react'
+import { Send, Mail, Phone, MapPin, } from 'lucide-react'
 import { Card, CardContent } from "@/components/ui/card"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -34,7 +34,7 @@ export default function ContactForm() {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
-          access_key: '6f0f0372-dd7b-40d2-9f95-1bcd8e1ca2de', // Replace with your Web3Forms access key
+          access_key: 'd3206287-73ed-48db-a6e0-7e9c9f673d8f', // Replace with your Web3Forms access key
           ...formData,
         }),
       });
@@ -72,33 +72,32 @@ export default function ContactForm() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.2 }}
           >
-            <h3 className="text-3xl font-semibold mb-6">Let's Connect</h3>
+            <h3 className="text-3xl font-semibold mb-6">My Contact </h3>
             <p className="mb-8 text-white">
-              I'm always open to new opportunities, collaborations, or just a friendly chat. 
-              Feel free to reach out if you have any questions or want to work together!
+
             </p>
             <div className="space-y-4">
-              <div className="flex items-center hover:text-sky-400">
+              <div className="flex items-center hover:text-gray-400">
                 <Mail className="w-6 h-6 mr-4 text-white" />
-                <span>shashankkumar2232@gmail.com</span>
+                <span>revannofendri@gmail.com</span>
               </div>
-              <div className="flex items-center hover:text-sky-400">
+              <div className="flex items-center hover:text-gray-400">
                 <Phone className="w-6 h-6 mr-4 text-white" />
-                <span>+919693444480</span>
+                <span>+62 895410240543</span>
               </div>
-              <div className="flex items-center hover:text-sky-400">
+              <div className="flex items-center hover:text-gray-400">
                 <MapPin className="w-6 h-6 mr-4 text-white" />
-                <span>Punjab, India</span>
+                <span>Kota Jambi, Indonesia</span>
               </div>
             </div>
-            <div className="mt-8 flex space-x-4">
+            {/* <div className="mt-8 flex space-x-4">
               <a href="https://www.linkedin.com/in/shashank-kumar2232/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-sky-400 transition-colors">
                 <Linkedin size={24} />
               </a>
               <a href="https://github.com/Shashank5239/" target="_blank" rel="noopener noreferrer" className="text-white hover:text-sky-400 transition-colors">
                 <Github size={24} />
               </a>
-            </div>
+            </div> */}
           </motion.div>
           <motion.div
             className="lg:w-1/2"
@@ -106,12 +105,12 @@ export default function ContactForm() {
             animate={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.5, delay: 0.4 }}
           >
-            <Card className="w-full bg-black/40 max-w-md mx-auto border-none backdrop-blur-md rounded-lg 
-            hover:shadow-[0_0_25px_10px_rgba(96,165,250,0.3)] duration-500">
+            <Card className="w-full bg-gray-800/40 max-w-md mx-auto border-none backdrop-blur-md rounded-lg 
+hover:shadow-[0_0_25px_10px_rgba(107,114,128,0.3)] duration-500">
               <CardContent className="p-8">
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <motion.div variants={inputVariants} whileFocus="focus">
-                    <label htmlFor="name" className="block mb-2 text-sm font-medium text-purple-200">Name</label>
+                    <label htmlFor="name" className="block mb-2 text-sm font-medium text-gray-200">Name</label>
                     <Input
                       type="text"
                       id="name"
@@ -124,7 +123,7 @@ export default function ContactForm() {
                     />
                   </motion.div>
                   <motion.div variants={inputVariants} whileFocus="focus">
-                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-purple-200">Email</label>
+                    <label htmlFor="email" className="block mb-2 text-sm font-medium text-gray-200">Email</label>
                     <Input
                       type="email"
                       id="email"
@@ -137,7 +136,7 @@ export default function ContactForm() {
                     />
                   </motion.div>
                   <motion.div variants={inputVariants} whileFocus="focus">
-                    <label htmlFor="message" className="block mb-2 text-sm font-medium text-purple-200">Message</label>
+                    <label htmlFor="message" className="block mb-2 text-sm font-medium text-gray-200">Message</label>
                     <Textarea
                       id="message"
                       name="message"
@@ -161,12 +160,11 @@ export default function ContactForm() {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                   >
-                    <Button 
-                      type="submit" 
+                    <Button
+                      type="submit"
                       disabled={status.loading}
-                      className="w-full bg-gradient-to-r from-sky-900 text-white py-3 px-6 rounded-md transition 
-                      duration-300 flex items-center justify-center text-lg font-sans shadow-lg"
-                    >
+                      className="w-full bg-gradient-to-r from-gray-700 to-gray-900 text-white py-3 px-6 rounded-md transition 
+  duration-300 flex items-center justify-center text-lg font-sans shadow-lg hover:brightness-110">
                       {status.loading ? 'Sending...' : 'Send Message'}
                       <Send size={20} className="ml-2" />
                     </Button>
@@ -177,7 +175,7 @@ export default function ContactForm() {
           </motion.div>
         </div>
       </div>
-    </section>
+    </section >
   )
 }
 

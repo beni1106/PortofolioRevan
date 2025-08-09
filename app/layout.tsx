@@ -6,11 +6,14 @@ import Footer from './components/Footer/page'
 import ScrollToTop from './components/ScrollToTop/page'
 import SocialMedia from './components/SocialMedia/page'
 
-const inter = Inter({ subsets: ['latin'] })
+export const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Shashank Kumar',
+  title: 'Revan Novendri',
   description: 'Computer Science & Engineering student',
+  icons: {
+    icon: [], // Hilangkan favicon
+  },
 }
 
 export default function RootLayout({
@@ -19,8 +22,8 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className="dark scroll-smooth">
-      <body className={`${inter.className} text-white min-h-screen`}>
+    <html lang="en">
+      <body className={inter.className}>
         <div className="flex flex-col min-h-screen">
           <Header />
           <main className="flex-grow">{children}</main>
@@ -32,4 +35,3 @@ export default function RootLayout({
     </html>
   )
 }
-

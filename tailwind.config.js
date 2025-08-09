@@ -5,6 +5,9 @@ module.exports = {
     './components/**/*.{js,ts,jsx,tsx,mdx}',
     './app/**/*.{js,ts,jsx,tsx,mdx}',
   ],
+  safelist: [
+    'grid-cols-[repeat(auto-fit,minmax(300px,1fr))]',
+  ],
   theme: {
     extend: {
       backgroundImage: {
@@ -25,4 +28,3 @@ module.exports = {
   },
   plugins: [],
 }
-

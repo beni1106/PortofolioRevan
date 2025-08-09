@@ -12,22 +12,8 @@ export default function Projects() {
   const [hoveredProject, setHoveredProject] = useState<number | null>(null)
 
   const projects = [
-    {
-      title: "HealthCareConnect",
-      description: "A web-based doctor appointment booking platform developed using HTML, CSS, JavaScript (frontend), and PHP (backend). It includes features like user authentication, doctor listings, appointment scheduling, and a responsive UI/UX for a seamless experience. Additionally, it offers a HealthCare Blog and Health Tips section, providing valuable medical insights. The PHP backend manages form submissions, session handling, and MySQL database interactions, ensuring secure and efficient performance.",
-      tech: ["HTML", "CSS", "PHP", "JavaScript"],
-      image: "/images/health.png",
-      github: "https://github.com/Shashank5239/healthcarewebsite",
-      live: "https://shashank5239.github.io/healthcarewebsite/",
-    },
-    {
-      title: "Potato Disease Classification",
-      description: "Developed a Potato Disease Classifier using Python, Streamlit, and CNN for a hackathon. The model identifies plant diseases from leaf images, leveraging deep learning for accurate classification. Built an intuitive Streamlit UI for user-friendly interaction. The project enhances agriculture by enabling early disease detection, aiding farmers in preventive measures.",
-      tech: ["Python", "Streamlit", "CNN"],
-      image: "/images/plant.png",
-      github: "https://github.com/Shashank5239/Potato-Disease-Classifier",
-      live: "https://github.com/Shashank5239/Potato-Disease-Classifier",
-    }
+    { comingSoon: true },
+    { comingSoon: true }
   ]
 
   const container = {
@@ -69,68 +55,11 @@ export default function Projects() {
           >
             {projects.map((project, index) => (
               <motion.div
-                key={project.title}
+                key={index}
                 variants={item}
-                onHoverStart={() => setHoveredProject(index)}
-                onHoverEnd={() => setHoveredProject(null)}
-                whileHover={{ y: -5 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
-                <Card className="glass-effect h-full bg-gradient-to-br from-[#4C3957]/10 to-[#6B5B7B]/10 border-[#4C3957]/20 overflow-hidden">
-                  <div className="relative h-48 group">
-                    <Image
-                      src={project.image}
-                      alt={project.title}
-                      fill
-                      className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    />
-                    <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/60 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
-                      <div className="absolute bottom-4 left-4 right-4 flex gap-4">
-                        <Button
-                          asChild
-                          variant="outline"
-                          size="sm"
-                          className="rounded-full border-none bg-black/50 backdrop-blur-sm hover:bg-sky-900 flex-1"
-                        >
-                          <a href={project.github} target="_blank" rel="noopener noreferrer">
-                            <Github className="w-4 h-4 mr-2" />
-                            Code
-                          </a>
-                        </Button>
-                        <Button
-                          asChild
-                          size="sm"
-                          className="rounded-full bg-sky-900 backdrop-blur-sm hover:bg-white/40 flex-1"
-                        >
-                          <a href={project.live} target="_blank" rel="noopener noreferrer">
-                            <ExternalLink className="w-4 h-4 mr-2" />
-                            Demo
-                          </a>
-                        </Button>
-                      </div>
-                    </div>
-                  </div>
-                  <CardContent className="p-6 space-y-4">
-                    <div>
-                      <h3 className="text-xl font-bold text-white mb-2">{project.title}</h3>
-                      <p className="text-gray-300 text-sm line-clamp-3 hover:line-clamp-none transition-all duration-300">
-                        {project.description}
-                      </p>
-                    </div>
-
-                    <div className="flex flex-wrap gap-2 pt-2">
-                      {project.tech.map((tech) => (
-                        <Badge 
-                          key={tech} 
-                          variant="secondary" 
-                          className="bg-sky-500/20 text-sky-300
-                           transition-all duration-300"
-                        >
-                          {tech}
-                        </Badge>
-                      ))}
-                    </div>
-                  </CardContent>
+                <Card className="glass-effect h-full flex items-center justify-center bg-gradient-to-br from-gray-800/30 to-gray-700/30 border-gray-600/20 min-h-[200px]">
+                  <span className="text-2xl font-bold text-gray-300">Coming Soon</span>
                 </Card>
               </motion.div>
             ))}
@@ -146,13 +75,13 @@ export default function Projects() {
               size="lg"
               className="rounded-full border-sky-900 hover:bg-sky-900 hover:text-white transition-all duration-300"
             >
-              <a 
-                href="https://github.com/Shashank5239" 
-                target="_blank" 
+              <a
+                href="https://github.com/Shashank5239"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center"
               >
-                View More Projects
+                SmalllProjects
                 <ChevronRight className="w-4 h-4 ml-2" />
               </a>
             </Button>
