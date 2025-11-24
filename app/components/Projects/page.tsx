@@ -14,7 +14,7 @@ export default function Projects() {
   const projects = [
     {
       title: "PT. BERKAH AUTO SUKSES SEJAHTERA ( PT. BASS )",
-      description: "A web-based doctor appointment booking platform developed using HTML, CSS, JavaScript (frontend), and PHP (backend). It includes features like user authentication, doctor listings, appointment scheduling, and a responsive UI/UX for a seamless experience. Additionally, it offers a HealthCare Blog and Health Tips section, providing valuable medical insights. The PHP backend manages form submissions, session handling, and MySQL database interactions, ensuring secure and efficient performance.",
+      description: "Creating a website for PT. BERKAH AUTO SUKSES SEJAHTERA, the first time I worked on a real project, creating a website according to my client's wishes and I created the website with my partner, in this position I handled the Front-end side.",
       tech: ["NextJS", "JavaScript", "PHP", "CodeIgniter", "MySQL"],
       image: "/images/1.png",
       github: "https://github.com/beni1106/autoSuk-frontend.git",
