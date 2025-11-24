@@ -24,7 +24,7 @@ export default function Hero() {
                 1000,
                 '',
                 250,
-                'Software Engineer',
+                'Web Developer',
                 1000,
                 '',
                 250,
