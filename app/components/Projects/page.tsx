@@ -13,10 +13,26 @@ export default function Projects() {
 
   const projects = [
     {
-      title: "PT. BERKAH AUTO SUKSES SEJAHTERA ( PT. BASS )",
+      title: "AutoSukses ( PT. BASS )",
       description: "Creating a website for PT. BERKAH AUTO SUKSES SEJAHTERA, the first time I worked on a real project, creating a website according to my client's wishes and I created the website with my partner, in this position I handled the Front-end side.",
       tech: ["NextJS", "JavaScript", "PHP", "CodeIgniter", "MySQL"],
       image: "/images/1.png",
+      github: "https://github.com/beni1106/autoSuk-frontend.git",
+      live: "https://basspreneur.com/",
+    },
+    {
+      title: "News Portal AI Website",
+      description: "Create a news AI portal website using Next JS and take 3 APIs that are combined into 1 so that the context you want to take remains consistent and there is a touch of OpenAI to generate descriptions, but this feature is used when the 3 APIs do not generate their descriptions.",
+      tech: ["NextJS", "JavaScript", "TailwindCSS", "Axios", "React", "OpenAI API"],
+      image: "/images/2.png",
+      github: "https://github.com/beni1106/news-portal-ai.git",
+      live: "https://news-portal-ai.vercel.app/",
+    },
+    {
+      title: "PT. BERKAH AUTO SUKSES SEJAHTERA ( PT. BASS )",
+      description: "Creating another website for PT. BERKAH AUTO SUKSES SEJAHTERA, I use tech Native for this project.",
+      tech: ["HTML", "TailwindCSS", "JavaScript", "PHP", ],
+      image: "/images/3.webp",
       github: "https://github.com/beni1106/autoSuk-frontend.git",
       live: "https://basspreneur.com/",
     }
@@ -58,7 +74,7 @@ export default function Projects() {
             variants={container}
             initial="hidden"
             animate="show"
-            className="flex justify-center"
+            className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8"
           >
             {projects.map((project, index) => (
               <motion.div
@@ -146,7 +162,7 @@ export default function Projects() {
                 rel="noopener noreferrer"
                 className="inline-flex items-center"
               >
-                View More Projects
+                View More Projects in Github
                 <ChevronRight className="w-4 h-4 ml-2" />
               </a>
             </Button>
