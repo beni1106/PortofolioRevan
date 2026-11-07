@@ -2,62 +2,71 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --foreground-rgb: 255, 255, 255;
-  --background-start-rgb: 5, 5, 10;
-  /* Darker shade */
-  --background-end-rgb: 10, 10, 20;
-  /* Darker shade */
-  --accent-color: 56, 189, 248;
-}
+@layer base {
+  /* Token warna shadcn/ui (tema gelap). Sebelumnya tidak pernah didefinisikan. */
+  :root {
+    --background: 240 10% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 240 10% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 240 10% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 240 5.9% 10%;
+    --secondary: 240 3.7% 15.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 240 3.7% 15.9%;
+    --muted-foreground: 240 5% 64.9%;
+    --accent: 240 3.7% 15.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 240 3.7% 15.9%;
+    --input: 240 3.7% 15.9%;
+    --ring: 240 4.9% 83.9%;
+    --radius: 0.5rem;
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(to bottom,
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 5, 5, 10;
+    --background-end-rgb: 10, 10, 20;
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    background-color: rgb(var(--background-end-rgb));
+  }
+
+  body {
+    color: rgb(var(--foreground-rgb));
+    background: linear-gradient(
+      to bottom,
       rgb(var(--background-start-rgb)),
-      rgb(var(--background-end-rgb)));
-  min-height: 100vh;
+      rgb(var(--background-end-rgb))
+    );
+    min-height: 100vh;
+  }
 }
 
-
+/* Sengaja di luar @layer: harus menang atas utility seperti bg-card / border pada Card. */
 .glass-effect {
   background: rgba(255, 255, 255, 0.03);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
   border: none;
+  transition: background-color 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Tidak ada transform di sini: efek angkat ditangani framer-motion / utility
+   Tailwind di komponen, supaya tidak dobel. */
 .glass-effect:hover {
   background: rgba(255, 255, 255, 0.05);
-  transform: translateY(-5px);
-}
-
-.glow {
-  box-shadow: 0 0 15px rgba(56, 189, 248, 0.3);
 }
 
 .hover-glow:hover {
   box-shadow: 0 0 25px rgba(107, 114, 128, 0.5);
-  /* gray-500 */
-}
-
-@keyframes float {
-  0% {
-    transform: translateY(0px);
-  }
-
-  50% {
-    transform: translateY(-20px);
-  }
-
-  100% {
-    transform: translateY(0px);
-  }
-}
-
-.float-animation {
-  animation: float 6s ease-in-out infinite;
 }
 
 .nav-blur {
@@ -74,68 +83,16 @@ body {
   color: rgb(56, 189, 248);
 }
 
-@keyframes slide {
-  0% {
-    transform: translateX(0);
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
   }
 
-  100% {
-    transform: translateX(-100%);
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
-}
-
-.slider {
-  animation: slide 60s linear infinite;
-}
-
-.slider:hover {
-  animation-play-state: paused;
-}
-
-@keyframes scroll {
-  0% {
-    transform: translateY(0);
-  }
-
-  50% {
-    transform: translateY(6px);
-  }
-
-  100% {
-    transform: translateY(0);
-  }
-}
-
-@keyframes tilt {
-
-  0%,
-  50%,
-  100% {
-    transform: rotate(0deg);
-  }
-
-  25% {
-    transform: rotate(1deg);
-  }
-
-  75% {
-    transform: rotate(-1deg);
-  }
-}
-
-.animate-scroll {
-  animation: scroll 2s ease-in-out infinite;
-}
-
-.animate-tilt {
-  animation: tilt 10s infinite linear;
-}
-
-::selection {
-  background: none;
-  color: inherit;
-}
-
-body {
-  user-select: none;
 }
