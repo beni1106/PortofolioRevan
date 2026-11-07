@@ -1,33 +1,19 @@
-export const metadata = {
-  title: 'Revan Novendri',
-  description: 'Portfolio of Revan Novendri',
-}
-
-import Hero from './components/Hero/page'
-import About from './components/About/page'
-import Education from './components/Education/page'
-import Experience from './components/Experience/page'
-import Projects from './components/Projects/page'
-import Skills from './components/Skills/page'
-// import Organizations from './components/Organizations/page'
-// import Achievements from './components/Achievements/page'
-// import Testimonials from './components/Testimonials/page'
-import ContactForm from './components/ContactForm/page'
+import Hero from '@/components/sections/Hero'
+import About from '@/components/sections/About'
+import Certifications from '@/components/sections/Certifications'
+import Projects from '@/components/sections/Projects'
+import Skills from '@/components/sections/Skills'
+import ContactForm from '@/components/sections/ContactForm'
 
 export default function Home() {
   return (
     <>
       <Hero />
       <About />
-      <Education />
-      <Experience />
+      <Certifications />
       <Projects />
       <Skills />
-      {/* <Organizations /> */}
-      {/* <Achievements /> */}
-      {/* <Testimonials /> */}
       <ContactForm />
     </>
   )
 }
-

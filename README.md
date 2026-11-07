@@ -1,99 +1,71 @@
-# Portfolio Template
+# Portfolio Revan Novendri
 
-A customizable and modern portfolio template built using **Next.js**, **Tailwind CSS**, and **TypeScript**. This template is ideal for showcasing your personal projects, skills, and experiences in a professional way.
+Website portfolio pribadi, dibuat dengan **Next.js 16 (App Router)**, **React 19**, **TypeScript**, **Tailwind CSS 3**, **Framer Motion**, dan komponen **shadcn/ui**.
 
----
+## Menjalankan
 
-## 🚀 Features
+Butuh Node.js 20.9 atau lebih baru.
 
-- **Responsive Design**: Fully mobile-friendly and works across all devices.
-- **Dynamic Content**: Easily update content like projects, skills, and experiences.
-- **Modern UI/UX**: Built with Tailwind CSS for sleek and responsive designs.
-- **SEO Optimized**: Pre-configured SEO settings for better search engine rankings.
-- **Performance**: Optimized for fast loading times with Next.js.
+```bash
+npm install
+cp .env.example .env.local   # lalu isi nilainya (lihat di bawah)
+npm run dev                  # http://localhost:3000
+```
 
----
+Perintah lain:
 
-## 📂 Folder Structure
-  ```
-  portfolio-template/
-  ├── public/               # Static files and assets
-  │   └── images/           # Image assets
-  ├── src/                  # Source files
-  │   ├── app/              # Next.js App Router
-  │   ├── components/       # Reusable UI components
-  │   ├── styles/           # Global and Tailwind CSS styles
-  │   └── utils/            # Helper functions
-  ├── pages/                # Static pages
-  ├── package.json          # Dependencies and scripts
-  ├── tailwind.config.ts    # Tailwind CSS configuration
-  └── tsconfig.json         # TypeScript configuration
-  ```
+| Perintah            | Fungsi                         |
+| ------------------- | ------------------------------ |
+| `npm run build`     | Build production               |
+| `npm start`         | Jalankan hasil build           |
+| `npm run lint`      | ESLint                         |
+| `npm run typecheck` | Cek tipe TypeScript            |
 
+## Environment variable
 
----
+| Nama                                | Keterangan                                                        |
+| ----------------------------------- | ----------------------------------------------------------------- |
+| `NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY`  | Access key dari [web3forms.com](https://web3forms.com) untuk form kontak |
+| `NEXT_PUBLIC_SITE_URL`              | Domain asli saat deploy, dipakai untuk metadata / OpenGraph       |
 
-## 🛠️ Installation & Setup
+Saat deploy (mis. di Vercel), isi kedua variabel ini di pengaturan Environment Variables.
+`.env.local` tidak ikut ter-commit (diabaikan oleh `.gitignore`).
 
-1. **Clone the Repository**
+## Struktur folder
 
-   ```bash
-   git clone https://github.com/yourusername/portfolio-template.git
-   cd portfolio-template
+```
+app/
+  layout.tsx            Layout root + metadata (SEO / OpenGraph)
+  page.tsx              Halaman utama, menyusun semua section
+  icon.svg              Favicon
+  styles/globals.css    Tailwind + token warna shadcn + style kustom
+components/
+  layout/               Header, Footer, ScrollToTop, SocialMedia
+  sections/             Hero, About, Certifications, Projects, Skills, ContactForm
+  ui/                   Komponen shadcn/ui (button, card, badge, input, textarea)
+  ParticlesBackground.tsx
+  SocialIcon.tsx
+lib/
+  site.ts               Data pribadi (nama, email, sosial media, menu) - edit di sini
+  utils.ts              Helper cn()
+public/
+  images/               Gambar project & foto (WebP)
+  cv/                   File CV
+```
 
-2. **Install Dependencies**
-- Make sure you have Node.js installed, then run:
+> Folder `components/` ada di luar `app/` supaya file di dalamnya **tidak** otomatis menjadi route.
 
-  ```
-  npm install
-  # or
-  yarn install
-  ```
-  
-3. **Run Development Server**
-- Start the development server to view your portfolio locally:
+## Mengubah konten
 
-  ```
-  npm run dev
-  # or
-  yarn dev
-  ```
-  
-- Open your browser and navigate to `http://localhost:3000`.
+- **Info pribadi / sosial media / menu:** `lib/site.ts`
+- **Project:** array `projects` di `components/sections/Projects.tsx`
+  (`github` dan `live` opsional; tombol hanya tampil jika diisi)
+- **Sertifikat:** array `certificateData` di `components/sections/Certifications.tsx`
+- **Skill:** `components/sections/Skills.tsx` dan `About.tsx`
+- **Gambar:** ganti file di `public/images/` (disarankan WebP, lebar maksimal ~1600px)
+- **Warna tema:** variabel CSS di `app/styles/globals.css`
 
-## ✨ Customization
-1. **Update Content**
-- Edit the files in src/components/ to update content for:
-  - Hero Section
-  - About Me
-  - Projects
-  - Skills
-  - Contact Form
-2. **Change Images**
-- Replace the default images in public/images/ with your own.
-3. **Modify Styling**
-- Adjust styles in src/styles/globals.css or customize Tailwind in tailwind.config.ts.
-4. **SEO Configuration**
-- Edit the next-seo.config.ts file for custom meta tags.
+## Catatan
 
-## 🧑‍💻 Usage
-1. **Deploy on Vercel**
-- Click the button below to deploy the template directly to Vercel:
-2. **Deploy on GitHub Pages**
-- Use next export to generate static files and deploy them.
-3. **Contribute**
-- Feel free to fork this template, make improvements, and submit pull requests.
-
-## 🛡️ License
-- This project is licensed under the MIT License. Feel free to use it for personal and commercial projects.
-
-## 📧 Support
-- For any issues or suggestions, feel free to create a GitHub issue or reach out via email at youremail@example.com.
-
-## 🌟 Acknowledgements
-- Special thanks to:
-  - Next.js
-  - Tailwind CSS
-  - TypeScript
-
-
+- Project #3 ("PT. BERKAH AUTO SUKSES SEJAHTERA") belum punya link GitHub sendiri. Isi field `github` di `Projects.tsx` bila ada.
+- Font **Inter** diambil dari Google Fonts lewat `next/font` saat build, jadi build butuh koneksi internet.
